@@ -118,7 +118,7 @@
 <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
     (function() {
-        emailjs.init("YOUR_USER_ID");  // Replace with your EmailJS user ID
+        emailjs.init("HeNQtJNcompP-e3W6");  // Replace with your EmailJS user ID
     })();
 
     // Form submission handler
@@ -127,7 +127,7 @@
 
         const form = event.target;
 
-        emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", form)
+        emailjs.sendForm("gmailforsteakserver", "temp1", form)
             .then(function(response) {
                 alert("Message sent successfully!");
                 form.reset(); // Reset form after submission
