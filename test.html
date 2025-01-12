@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SteakServer - Minecraft Survival Server</title>
+    <style>
+        /* Overall page background and font */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #6fa700; /* Minecraft grass-like green background */
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #3a6d1f;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-family: 'Minecraft', sans-serif;
+        }
+
+        /* Main content area */
+        .content {
+            padding: 20px;
+        }
+
+        .server-info {
+            margin-bottom: 40px;
+        }
+
+        .server-info p {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        /* Contact form styles */
+        .contact-form {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            padding: 20px;
+            display: inline-block;
+            width: 60%;
+            max-width: 600px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #2a4d17;
+            border-radius: 4px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #4CAF50;
+            background-color: #2e5b1c;
+            outline: none;
+        }
+
+        .contact-form button {
+            background-color: #6fa700;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #4e8c00;
+        }
+
+        .contact-form .error {
+            color: red;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .contact-form .success {
+            color: #4CAF50;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3a6d1f;
+            padding: 15px 0;
+            text-align: center;
+            color: white;
+        }
+
+        footer a {
+            color: #ffee00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Welcome to SteakServer!</h1>
+        <p>Your Friendly Minecraft Survival Server</p>
+        <p>Join us at: <strong>steakserver.feathermc.gg</strong></p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="server-info">
+            <p>We offer a friendly survival Minecraft experience with features like:</p>
+            <ul>
+                <li><strong>/spawn</strong> - Teleport to the spawn area</li>
+                <li><strong>/warp</strong> - Use warps to visit various locations</li>
+                <li><strong>/dailyquests</strong> - Complete daily quests for rewards</li>
+            </ul>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h2>Contact Us for Support</h2>
+            <form id="contactForm" action="https://formsubmit.co/your-email@example.com" method="POST">
+                <input type="text" name="name" id="name" placeholder="Your Name" required>
+                <div id="nameError" class="error"></div>
+
+                <input type="email" name="email" id="email" placeholder="Your Email" required>
+                <div id="emailError" class="error"></div>
+
+                <textarea name="message" id="message" placeholder="Your Message" required></textarea>
+                <div id="messageError" class="error"></div>
+
+                <!-- Hidden field for redirecting to thank you page -->
+                <input type="hidden" name="_next" value="https://your-website.com/thank-you.html">
+                <button type="submit">Send Message</button>
+            </form>
+            <div id="formMessage" class="success"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Have questions? <a href="mailto:support@steakserver.feathermc.gg">Email Us</a></p>
+        <p>&copy; 2025 SteakServer</p>
+    </footer>
+
+    <script>
+        // Real-time form validation and interaction
+        const form = document.getElementById('contactForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const messageError = document.getElementById('messageError');
+        const formMessage = document.getElementById('formMessage');
+
+        // Function to validate name
+        nameInput.addEventListener('input', () => {
+            if (nameInput.value.length < 3) {
+                nameError.textContent = 'Name must be at least 3 characters long.';
+            } else {
+                nameError.textContent = '';
+            }
+        });
+
+        // Function to validate email
+        emailInput.addEventListener('input', () => {
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailRegex.test(emailInput.value)) {
+                emailError.textContent = 'Please enter a valid email address.';
+            } else {
+                emailError.textContent = '';
+            }
+        });
+
+        // Function to validate message
+        messageInput.addEventListener('input', () => {
+            if (messageInput.value.length < 10) {
+                messageError.textContent = 'Message must be at least 10 characters long.';
+            } else {
+                messageError.textContent = '';
+            }
+        });
+
+        // Handle form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();  // Prevent form from submitting immediately
+
+            // Check if there are any errors before submitting
+            if (!nameError.textContent && !emailError.textContent && !messageError.textContent) {
+                formMessage.textContent = 'Your message has been sent successfully!';
+                formMessage.style.color = '#4CAF50'; // Green success message
+
+                // Reset form inputs after submission
+                form.reset();
+            } else {
+                formMessage.textContent = 'Please correct the errors before submitting.';
+                formMessage.style.color = 'red'; // Red error message
+            }
+        });
+    </script>
+</body>
+</html>
