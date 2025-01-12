@@ -182,7 +182,7 @@
         emailInput.addEventListener('input', () => {
             const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
             if (!emailRegex.test(emailInput.value)) {
-                emailError.textContent = 'Please enter a valid email address.';
+                emailError.textContent = 'Please enter a valid email address. If ';
             } else {
                 emailError.textContent = '';
             }
