@@ -3,139 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SteakServer - Minecraft Support</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> <!-- Minecraft-like font -->
+    <title>Contact Us - Minecraft Server</title>
     <style>
         body {
-            font-family: 'Press Start 2P', cursive; /* Minecraft font */
-            background: url('https://example.com/minecraft-background.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        header {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            font-size: 36px;
-            border-bottom: 3px solid #ccc;
-        }
-        h1 {
-            margin: 0;
-        }
-        .content {
-            padding: 30px;
-        }
-        .server-info {
-            background-color: rgba(0, 0, 0, 0.7);
+
+        form {
+            background: #ffffff;
             padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            border: 3px solid #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
         }
-        .server-info h2 {
-            color: #f39c12; /* Minecraft Gold color */
-        }
-        .form-container {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            border: 3px solid #fff;
-        }
-        input, textarea {
+
+        input, textarea, select, button {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             margin: 10px 0;
-            border-radius: 5px;
-            border: 2px solid #444;
-            background-color: #222;
-            color: #fff;
-            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
+
         button {
-            padding: 12px 30px;
-            background-color: #f39c12;
-            color: #fff;
-            font-size: 16px;
-            border: none;
+            background-color: #4CAF50;
+            color: white;
             cursor: pointer;
-            border-radius: 5px;
-            text-transform: uppercase;
         }
+
         button:hover {
-            background-color: #e67e22;
-        }
-        .minecraft-logo {
-            max-width: 150px;
-            margin-bottom: 20px;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            padding: 8px;
-            border-bottom: 1px solid #444;
-        }
-        li:last-child {
-            border-bottom: none;
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>SteakServer - Minecraft Support</h1>
-</header>
-
-<div class="content">
-    <div class="server-info">
-        <h2>Welcome to SteakServer!</h2>
-        <p>Join our friendly survival server at: <strong>steakserver.feathermc.gg</strong></p>
-        <p>Our server offers the following commands:</p>
-        <ul>
-            <li><strong>/spawn</strong> - Teleport to the spawn area</li>
-            <li><strong>/warp</strong> - Access server warps</li>
-            <li><strong>/dailyquests</strong> - Daily quests to earn rewards</li>
-        </ul>
-    </div>
-
-    <div class="form-container">
-        <h2>Contact Support</h2>
-        <form id="support-form">
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
-            <input type="email" id="email" name="email" placeholder="Your Email" required>
-            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </div>
-</div>
-
-<!-- Include EmailJS SDK -->
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-    (function() {
-        emailjs.init("HeNQtJNcompP-e3W6");  // Replace with your EmailJS user ID
-    })();
-
-    // Form submission handler
-    document.getElementById("support-form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent the form from submitting the default way
-
-        const form = event.target;
-
-        emailjs.sendForm("gmailforsteakserver", "temp1", form)
-            .then(function(response) {
-                alert("Message sent successfully!");
-                form.reset(); // Reset form after submission
-            }, function(error) {
-                alert("Failed to send the message. Please try again.");
-            });
-    });
-</script>
-
+    <form action="https://formsubmit.co/steakserver@minecraft.eml.monster" method="POST">
+        <h2>Contact Us</h2>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <input type="hidden" name="_next" value="https://your-website.com/thank-you.html">
+        <button type="submit">Send Message</button>
+    </form>
 </body>
 </html>
