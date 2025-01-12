@@ -3,54 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Minecraft Server</title>
+    <title>SteakServer - Minecraft Survival Server</title>
     <style>
+        /* Overall page background and font */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background-color: #6fa700; /* Minecraft grass-like green background */
+            color: white;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            text-align: center;
         }
 
-        form {
-            background: #ffffff;
+        /* Header styling */
+        header {
+            background-color: #3a6d1f;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-family: 'Minecraft', sans-serif;
+        }
+
+        /* Main content area */
+        .content {
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 300px;
         }
 
-        input, textarea, select, button {
+        .server-info {
+            margin-bottom: 40px;
+        }
+
+        .server-info p {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        /* Contact form styles */
+        .contact-form {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            padding: 20px;
+            display: inline-block;
+            width: 60%;
+            max-width: 600px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form button {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
-            border: 1px solid #ccc;
+            border: 1px solid #2a4d17;
             border-radius: 4px;
+            font-size: 1em;
         }
 
-        button {
-            background-color: #4CAF50;
+        .contact-form button {
+            background-color: #6fa700;
             color: white;
+            font-weight: bold;
             cursor: pointer;
         }
 
-        button:hover {
-            background-color: #45a049;
+        .contact-form button:hover {
+            background-color: #4e8c00;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3a6d1f;
+            padding: 15px 0;
+            text-align: center;
+            color: white;
+        }
+
+        footer a {
+            color: #ffee00;
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <form action="https://formsubmit.co/steakserver@minecraft.eml.monster" method="POST">
-        <h2>Contact Us</h2>
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <input type="hidden" name="_next" value="https://your-website.com/thank-you.html">
-        <button type="submit">Send Message</button>
-    </form>
+    <!-- Header -->
+    <header>
+        <h1>Welcome to SteakServer!</h1>
+        <p>Your Friendly Minecraft Survival Server</p>
+        <p>Join us at: <strong>steakserver.feathermc.gg</strong></p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="server-info">
+            <p>We offer a friendly survival Minecraft experience with features like:</p>
+            <ul>
+                <li><strong>/spawn</strong> - Teleport to the spawn area</li>
+                <li><strong>/warp</strong> - Use warps to visit various locations</li>
+                <li><strong>/dailyquests</strong> - Complete daily quests for rewards</li>
+            </ul>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h2>Contact Us for Support</h2>
+            <form action="https://formsubmit.co/steakserversupport@altmails.com" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <!-- Hidden field for redirecting to thank you page -->
+                <input type="hidden" name="_next" value="https://your-website.com/thank-you.html">
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Have questions? <a href="mailto:steakserversupport@altmails.com">Email Us</a></p>
+        <p>&copy; 2025 SteakServer</p>
+    </footer>
 </body>
 </html>
