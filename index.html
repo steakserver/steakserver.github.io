@@ -97,6 +97,17 @@
             margin-bottom: 10px;
         }
 
+        /* Thank You message */
+        .thank-you-message {
+            display: none;
+            background-color: rgba(0, 128, 0, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: white;
+        }
+
         /* Footer */
         footer {
             background-color: #3a6d1f;
@@ -145,11 +156,15 @@
                 <textarea name="message" id="message" placeholder="Your Message" required></textarea>
                 <div id="messageError" class="error"></div>
 
-                <!-- Hidden field for redirecting to thank you page -->
-                <input type="hidden" name="_next" value="https://steakserver.github.io/thankyou">
+                <!-- Hidden field for redirecting to the Thank You page -->
+                <input type="hidden" name="_next" value="https://steakserver.github.io/thankyou.html">
                 <button type="submit">Send Message</button>
             </form>
-            <div id="formMessage" class="success"></div>
+        </div>
+
+        <!-- Thank You Message (hidden initially) -->
+        <div id="thankYouMessage" class="thank-you-message">
+            <p>Thank you for contacting us! Your message has been successfully sent.</p>
         </div>
     </div>
 
@@ -167,7 +182,7 @@
         const nameError = document.getElementById('nameError');
         const emailError = document.getElementById('emailError');
         const messageError = document.getElementById('messageError');
-        const formMessage = document.getElementById('formMessage');
+        const thankYouMessage = document.getElementById('thankYouMessage');
 
         // Function to validate name
         nameInput.addEventListener('input', () => {
@@ -180,7 +195,7 @@
 
         // Function to validate email
         emailInput.addEventListener('input', () => {
-            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
             if (!emailRegex.test(emailInput.value)) {
                 emailError.textContent = 'Please enter a valid email address.';
             } else {
@@ -203,14 +218,13 @@
 
             // Check if there are any errors before submitting
             if (!nameError.textContent && !emailError.textContent && !messageError.textContent) {
-                formMessage.textContent = 'Your message has been sent successfully!';
-                formMessage.style.color = '#4CAF50'; // Green success message
+                // Display the thank you message
+                thankYouMessage.style.display = 'block';
 
                 // Reset form inputs after submission
                 form.reset();
             } else {
-                formMessage.textContent = 'Please correct the errors before submitting.';
-                formMessage.style.color = 'red'; // Red error message
+                alert('Please correct the errors before submitting.');
             }
         });
     </script>
