@@ -5,17 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SteakServer - Minecraft Survival Server</title>
     <style>
-        /* Overall page background and font */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #6fa700; /* Minecraft grass-like green background */
+            background-color: #6fa700;
             color: white;
             margin: 0;
             padding: 0;
             text-align: center;
         }
 
-        /* Header styling */
         header {
             background-color: #3a6d1f;
             padding: 20px 0;
@@ -25,10 +23,8 @@
 
         header h1 {
             font-size: 2.5em;
-            font-family: 'Minecraft', sans-serif;
         }
 
-        /* Main content area */
         .content {
             padding: 20px;
         }
@@ -42,7 +38,6 @@
             font-weight: bold;
         }
 
-        /* Contact form styles */
         .contact-form {
             background-color: rgba(0, 0, 0, 0.7);
             border-radius: 8px;
@@ -91,24 +86,6 @@
             margin-bottom: 10px;
         }
 
-        .contact-form .success {
-            color: #4CAF50;
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
-
-        /* Thank You message */
-        .thank-you-message {
-            display: none;
-            background-color: rgba(0, 128, 0, 0.8);
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-            font-size: 1.2em;
-            color: white;
-        }
-
-        /* Footer */
         footer {
             background-color: #3a6d1f;
             padding: 15px 0;
@@ -121,18 +98,15 @@
             text-decoration: none;
             font-weight: bold;
         }
-
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <h1>Welcome to SteakServer!</h1>
         <p>Your Friendly Minecraft Survival Server</p>
         <p>Join us at: <strong>steakserver.feathermc.gg</strong></p>
     </header>
 
-    <!-- Main Content -->
     <div class="content">
         <div class="server-info">
             <p>We offer a friendly survival Minecraft experience with features like:</p>
@@ -143,10 +117,9 @@
             </ul>
         </div>
 
-        <!-- Contact Form -->
         <div class="contact-form">
             <h2>Contact Us for Support</h2>
-            <form id="contactForm" action="https://formsubmit.co/steakserversupport@minecraft.eml.monster" method="POST">
+            <form action="https://formspree.io/f/{your-form-id}" method="POST">
                 <input type="text" name="name" id="name" placeholder="Your Name" required>
                 <div id="nameError" class="error"></div>
 
@@ -156,77 +129,14 @@
                 <textarea name="message" id="message" placeholder="Your Message" required></textarea>
                 <div id="messageError" class="error"></div>
 
-                <!-- Hidden field for redirecting to the Thank You page -->
                 <input type="hidden" name="_next" value="https://steakserver.github.io/thankyou.html">
                 <button type="submit">Send Message</button>
             </form>
         </div>
-
-        <!-- Thank You Message (hidden initially) -->
-        <div id="thankYouMessage" class="thank-you-message">
-            <p>Thank you for contacting us! Your message has been successfully sent.</p>
-        </div>
     </div>
 
-    <!-- Footer -->
     <footer>
-        <p>Have questions? <a href="mailto:steakserversupport@altmails.com">Email Us</a> @ <a href="mailto:steakserversupport@altmails.com">steakserversupport@altmails.com</a></p>
+        <p>Have questions? <a href="mailto:steakserversupport@altmails.com">Email Us</a></p>
     </footer>
-
-    <script>
-        // Real-time form validation and interaction
-        const form = document.getElementById('contactForm');
-        const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
-        const messageInput = document.getElementById('message');
-        const nameError = document.getElementById('nameError');
-        const emailError = document.getElementById('emailError');
-        const messageError = document.getElementById('messageError');
-        const thankYouMessage = document.getElementById('thankYouMessage');
-
-        // Function to validate name
-        nameInput.addEventListener('input', () => {
-            if (nameInput.value.length < 3) {
-                nameError.textContent = 'Name must be at least 3 characters long.';
-            } else {
-                nameError.textContent = '';
-            }
-        });
-
-        // Function to validate email
-        emailInput.addEventListener('input', () => {
-            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-            if (!emailRegex.test(emailInput.value)) {
-                emailError.textContent = 'Please enter a valid email address.';
-            } else {
-                emailError.textContent = '';
-            }
-        });
-
-        // Function to validate message
-        messageInput.addEventListener('input', () => {
-            if (messageInput.value.length < 10) {
-                messageError.textContent = 'Message must be at least 10 characters long.';
-            } else {
-                messageError.textContent = '';
-            }
-        });
-
-        // Handle form submission
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();  // Prevent form from submitting immediately
-
-            // Check if there are any errors before submitting
-            if (!nameError.textContent && !emailError.textContent && !messageError.textContent) {
-                // Display the thank you message
-                thankYouMessage.style.display = 'block';
-
-                // Reset form inputs after submission
-                form.reset();
-            } else {
-                alert('Please correct the errors before submitting.');
-            }
-        });
-    </script>
 </body>
 </html>
